@@ -19,7 +19,7 @@ public class SignupController {
 
     @GetMapping("/signup")
     public String showSingup(Model model) {
-        model.addAttribute("SignupDto", new SignupDto());
+        model.addAttribute("signupDto", new SignupDto());
         return "signup";
     }
 
