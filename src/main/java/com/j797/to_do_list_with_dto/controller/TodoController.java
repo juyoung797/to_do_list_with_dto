@@ -25,7 +25,6 @@ public class TodoController {
         return (User) session.getAttribute("user");
     }
 
-
     @GetMapping
     public String list(HttpSession session, Model model) {
         User user = getCurrentUser(session);

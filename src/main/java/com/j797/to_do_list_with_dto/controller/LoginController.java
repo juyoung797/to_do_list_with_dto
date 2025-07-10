@@ -26,7 +26,7 @@ public class LoginController {
 
     @PostMapping("/login")
     public String doLogin(
-            @Valid @ModelAttribute("loginDto") LoginDto loginDto,
+            @Valid @ModelAttribute LoginDto loginDto,
             BindingResult bindingResult,
             HttpSession httpSession,
             Model model
@@ -34,7 +34,6 @@ public class LoginController {
         if (bindingResult.hasErrors()) {
             return "login";
         }
-
         try {
             User user = userRepository.findByUsername(loginDto.getUsername());
 
@@ -43,7 +42,6 @@ public class LoginController {
 
                 return "login";
             }
-
             httpSession.setAttribute("user", user);
 
             return "redirect:/todos";
